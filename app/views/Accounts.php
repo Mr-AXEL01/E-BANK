@@ -102,13 +102,16 @@ $accounts = $accountService->getAccounts();
                         <td class="px-6 py-4 font-semibold text-center"><?= $account['balance'] ?></td>
                         <td class="px-6 py-4 font-semibold text-center"><?= $account['RIB'] ?></td>
                         <td class="px-6 py-4 font-semibold text-center"><?= $account['userId'] ?></td>
-                        <!-- Add more columns as needed -->
-
-                        <!-- Add actions column with delete form -->
+                        
                         <td class="px-6 py-4 font-semibold text-center">
-                            <form action="accounts.php" method="post" class="cursor-pointer focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                            <form action="addAccount.php" method="get" class="inline-block">
+                                <input type="hidden" name="edit" value="<?= $account['accountId'] ?>">
+                                <input type="submit" value="Edit" class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                            </form>
+
+                            <form action="accounts.php" method="post" class="inline-block">
                                 <input type="hidden" name="delete" value="<?= $account['accountId'] ?>">
-                                <input type="submit" name="deleteaccount" value="Delete" class="cursor-pointer">
+                                <input type="submit" name="deleteaccount" value="Delete" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5">
                             </form>
                         </td>
                     </tr>
@@ -117,8 +120,9 @@ $accounts = $accountService->getAccounts();
         </table>
     </section>
 
-    <!-- Include your footer -->
-    <?php include 'footer.php'; ?>
+    <footer class="text-center h-[5vh] text-white bg-black flex items-center justify-center">
+        <h2>Copyright © 2030 Hashtag Developer. All Rights Reserved</h2>
+    </footer>
 </body>
 
 </html>
